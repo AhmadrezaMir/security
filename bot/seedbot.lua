@@ -180,8 +180,7 @@ function _send_msg(destination, text)
 end
 
 -- Save the content of _config to config.lua
-function save_config( )
-  serialize_to_file(_config, './data/config.lua')
+function save_config( )  serialize_to_file(_config, './data/config.lua')
   print ('saved config into ./data/config.lua')
 end
 
@@ -191,8 +190,7 @@ function load_config( )
   local f = io.open('./data/config.lua', "r")
   -- If config.lua doesn't exist
   if not f then
-    print ("Created new config file: data/config.lua")
-    create_config()
+    print ("Created new config file: data/config.lua")    create_config()
   else
     f:close()
   end
@@ -202,7 +200,6 @@ function load_config( )
   end
   return config
 end
-
 -- Create a basic config.json file and saves it.
 function create_config( )
   -- A simple config with basic plugins and ourselves as privileged user
@@ -213,8 +210,7 @@ function create_config( )
     "ingroup",
     "inpm",
     "banhammer",
-    "stats",
-    "anti_spam",
+    "stats",    "anti_spam",
     "owners",
     "arabic_lock",
     "set",
@@ -226,30 +222,11 @@ function create_config( )
     "leave_ban",
     "admin"
     },
-    sudo_users = {110626080,103649648,143723991,111020322,0,tonumber(our_id)},--Sudo users
+    sudo_users = {(our_id)},--Sudo users
     disabled_channels = {},
     moderation = {data = 'data/moderation.json'},
-    about_text = [[Teleseed v2 - Open Source
-An advance Administration bot based on yagop/telegram-bot 
-
-https://github.com/SEEDTEAM/TeleSeed
-
-Our team!
-Alphonse (@Iwals)
-I M /-\ N (@Imandaneshi)
-Siyanew (@Siyanew)
-Rondoozle (@Potus)
-Seyedan (@Seyedan25)
-
-Special thanks to:
-Juan Potato
-Siyanew
-Topkecleon
-Vamptacus
-
-Our channels:
-English: @TeleSeedCH
-Persian: @IranSeed
+    about_text = [[Advance admin bot <<Close Source>>
+		Created by : @R00T3
 ]],
     help_text_realm = [[
 Realm Commands:
@@ -511,7 +488,7 @@ function cron_plugins()
 end
 
 -- Start and load values
-our_id = 0
+our_id = 299651870
 now = os.time()
 math.randomseed(now)
 started = false
